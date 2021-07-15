@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable prettier/prettier */
+import React, { Component } from 'react';
+import { Link, BrowserRouter as Router, Route } from 'react-router-dom';
+import Comics from './pages/comics';
+import Details from './pages/comics/comicsDetails';
+import GlobalStyle from './styles/global';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// eslint-disable-next-line react/prefer-stateless-function
+class App extends Component {
+    render() {
+        return (
+            <>
+                <Router>
+                    <Route exact path="/" component={Comics} />
+                    <Route exact path="/details" component={Details} />
+                </Router>
+                <GlobalStyle />
+            </>
+        );
+    }
 }
 
 export default App;
